@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MUAYNETAKIPDBModelStoreContainer" CdmEntityContainer="MUAYNETAKIPDBEntities">
+    <EntitySetMapping Name="ANABILIMDALI">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.ANABILIMDALI">
+        <MappingFragment StoreEntitySet="ANABILIMDALI">
+          <ScalarProperty Name="ANABILIMDALIID" ColumnName="ANABILIMDALIID" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOKTOR">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.DOKTOR">
+        <MappingFragment StoreEntitySet="DOKTOR">
+          <ScalarProperty Name="DOKTORID" ColumnName="DOKTORID" />
+          <ScalarProperty Name="ANABILIMDALIID" ColumnName="ANABILIMDALIID" />
+          <ScalarProperty Name="TCKIMLIKNO" ColumnName="TCKIMLIKNO" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="SOYADI" ColumnName="SOYADI" />
+          <ScalarProperty Name="DOGUMTARIHI" ColumnName="DOGUMTARIHI" />
+          <ScalarProperty Name="KANGRUBU" ColumnName="KANGRUBU" />
+          <ScalarProperty Name="CINSIYET" ColumnName="CINSIYET" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="EPOSTA" ColumnName="EPOSTA" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HASTA">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.HASTA">
+        <MappingFragment StoreEntitySet="HASTA">
+          <ScalarProperty Name="HASTAID" ColumnName="HASTAID" />
+          <ScalarProperty Name="TCKIMLIKNO" ColumnName="TCKIMLIKNO" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="SOYADI" ColumnName="SOYADI" />
+          <ScalarProperty Name="DOGUMTARIHI" ColumnName="DOGUMTARIHI" />
+          <ScalarProperty Name="KANGRUBU" ColumnName="KANGRUBU" />
+          <ScalarProperty Name="CINSIYET" ColumnName="CINSIYET" />
+          <ScalarProperty Name="KRONIKHASTALIKLAR" ColumnName="KRONIKHASTALIKLAR" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="EPOSTA" ColumnName="EPOSTA" />
+          <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="AKTIF" ColumnName="AKTIF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUAYENE">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.MUAYENE">
+        <MappingFragment StoreEntitySet="MUAYENE">
+          <ScalarProperty Name="MUAYENEID" ColumnName="MUAYENEID" />
+          <ScalarProperty Name="RANDEVUID" ColumnName="RANDEVUID" />
+          <ScalarProperty Name="TESHIS" ColumnName="TESHIS" />
+          <ScalarProperty Name="TEDAVI" ColumnName="TEDAVI" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RANDEVU">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.RANDEVU">
+        <MappingFragment StoreEntitySet="RANDEVU">
+          <ScalarProperty Name="RANDEVUID" ColumnName="RANDEVUID" />
+          <ScalarProperty Name="HASTAID" ColumnName="HASTAID" />
+          <ScalarProperty Name="DOKTORID" ColumnName="DOKTORID" />
+          <ScalarProperty Name="MUAYNETARIHI" ColumnName="MUAYNETARIHI" />
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MUAYNETAKIPDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

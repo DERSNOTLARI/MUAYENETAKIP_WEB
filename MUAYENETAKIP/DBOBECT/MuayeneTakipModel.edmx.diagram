@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf25415305fd4c1fa8a7b5e72ac110aa" Name="Diagram1">
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.ANABILIMDALI" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.DOKTOR" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.HASTA" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.MUAYENE" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.RANDEVU" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MUAYNETAKIPDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="MUAYNETAKIPDBModel.FK_DOKTOR_ANABILIMDALI" ManuallyRouted="false" />
+        <AssociationConnector Association="MUAYNETAKIPDBModel.FK_RANDEVU_DOKTOR" ManuallyRouted="false" />
+        <AssociationConnector Association="MUAYNETAKIPDBModel.FK_RANDEVU_HASTA" ManuallyRouted="false" />
+        <AssociationConnector Association="MUAYNETAKIPDBModel.FK_MUAYENE_RANDEVU" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

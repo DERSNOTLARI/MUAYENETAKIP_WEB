@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MUAYNETAKIPDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ANABILIMDALI">
+    <Key>
+      <PropertyRef Name="ANABILIMDALIID" />
+    </Key>
+    <Property Name="ANABILIMDALIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DOKTOR" Relationship="Self.FK_DOKTOR_ANABILIMDALI" FromRole="ANABILIMDALI" ToRole="DOKTOR" />
+  </EntityType>
+  <EntityType Name="DOKTOR">
+    <Key>
+      <PropertyRef Name="DOKTORID" />
+    </Key>
+    <Property Name="DOKTORID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ANABILIMDALIID" Type="Int32" Nullable="false" />
+    <Property Name="TCKIMLIKNO" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SOYADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOGUMTARIHI" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="KANGRUBU" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CINSIYET" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TELEFON" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EPOSTA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ADRES" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AKTIF" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ANABILIMDALI" Relationship="Self.FK_DOKTOR_ANABILIMDALI" FromRole="DOKTOR" ToRole="ANABILIMDALI" />
+    <NavigationProperty Name="RANDEVU" Relationship="Self.FK_RANDEVU_DOKTOR" FromRole="DOKTOR" ToRole="RANDEVU" />
+  </EntityType>
+  <EntityType Name="HASTA">
+    <Key>
+      <PropertyRef Name="HASTAID" />
+    </Key>
+    <Property Name="HASTAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TCKIMLIKNO" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SOYADI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOGUMTARIHI" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="KANGRUBU" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CINSIYET" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KRONIKHASTALIKLAR" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TELEFON" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EPOSTA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ADRES" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AKTIF" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RANDEVU" Relationship="Self.FK_RANDEVU_HASTA" FromRole="HASTA" ToRole="RANDEVU" />
+  </EntityType>
+  <EntityType Name="MUAYENE">
+    <Key>
+      <PropertyRef Name="MUAYENEID" />
+    </Key>
+    <Property Name="MUAYENEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RANDEVUID" Type="Int32" Nullable="false" />
+    <Property Name="TESHIS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TEDAVI" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RANDEVU" Relationship="Self.FK_MUAYENE_RANDEVU" FromRole="MUAYENE" ToRole="RANDEVU" />
+  </EntityType>
+  <EntityType Name="RANDEVU">
+    <Key>
+      <PropertyRef Name="RANDEVUID" />
+    </Key>
+    <Property Name="RANDEVUID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HASTAID" Type="Int32" Nullable="false" />
+    <Property Name="DOKTORID" Type="Int32" Nullable="false" />
+    <Property Name="MUAYNETARIHI" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DOKTOR" Relationship="Self.FK_RANDEVU_DOKTOR" FromRole="RANDEVU" ToRole="DOKTOR" />
+    <NavigationProperty Name="HASTA" Relationship="Self.FK_RANDEVU_HASTA" FromRole="RANDEVU" ToRole="HASTA" />
+    <NavigationProperty Name="MUAYENE" Relationship="Self.FK_MUAYENE_RANDEVU" FromRole="RANDEVU" ToRole="MUAYENE" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_DOKTOR_ANABILIMDALI">
+    <End Role="ANABILIMDALI" Type="Self.ANABILIMDALI" Multiplicity="1" />
+    <End Role="DOKTOR" Type="Self.DOKTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANABILIMDALI">
+        <PropertyRef Name="ANABILIMDALIID" />
+      </Principal>
+      <Dependent Role="DOKTOR">
+        <PropertyRef Name="ANABILIMDALIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RANDEVU_DOKTOR">
+    <End Role="DOKTOR" Type="Self.DOKTOR" Multiplicity="1" />
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOKTOR">
+        <PropertyRef Name="DOKTORID" />
+      </Principal>
+      <Dependent Role="RANDEVU">
+        <PropertyRef Name="DOKTORID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RANDEVU_HASTA">
+    <End Role="HASTA" Type="Self.HASTA" Multiplicity="1" />
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HASTA">
+        <PropertyRef Name="HASTAID" />
+      </Principal>
+      <Dependent Role="RANDEVU">
+        <PropertyRef Name="HASTAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MUAYENE_RANDEVU">
+    <End Role="RANDEVU" Type="Self.RANDEVU" Multiplicity="1" />
+    <End Role="MUAYENE" Type="Self.MUAYENE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RANDEVU">
+        <PropertyRef Name="RANDEVUID" />
+      </Principal>
+      <Dependent Role="MUAYENE">
+        <PropertyRef Name="RANDEVUID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MUAYNETAKIPDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ANABILIMDALI" EntityType="Self.ANABILIMDALI" />
+    <EntitySet Name="DOKTOR" EntityType="Self.DOKTOR" />
+    <EntitySet Name="HASTA" EntityType="Self.HASTA" />
+    <EntitySet Name="MUAYENE" EntityType="Self.MUAYENE" />
+    <EntitySet Name="RANDEVU" EntityType="Self.RANDEVU" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_DOKTOR_ANABILIMDALI" Association="Self.FK_DOKTOR_ANABILIMDALI">
+      <End Role="ANABILIMDALI" EntitySet="ANABILIMDALI" />
+      <End Role="DOKTOR" EntitySet="DOKTOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RANDEVU_DOKTOR" Association="Self.FK_RANDEVU_DOKTOR">
+      <End Role="DOKTOR" EntitySet="DOKTOR" />
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RANDEVU_HASTA" Association="Self.FK_RANDEVU_HASTA">
+      <End Role="HASTA" EntitySet="HASTA" />
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MUAYENE_RANDEVU" Association="Self.FK_MUAYENE_RANDEVU">
+      <End Role="RANDEVU" EntitySet="RANDEVU" />
+      <End Role="MUAYENE" EntitySet="MUAYENE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
